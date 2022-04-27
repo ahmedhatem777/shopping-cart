@@ -21,7 +21,7 @@ const myTheme = createTheme({
       },
       // Beige-ish
       warning: {
-        main: '#D9C5B2',
+        main: '#FFEDE1',
       },
       // Blue
       success: {

@@ -8,13 +8,12 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['All Products', 'My Cart'];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -44,9 +43,9 @@ const Navbar = () => {
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-            
+            color='warning'
           >
-            COOLNAME SHOP
+            <Link href={'/'}><a><strong><i>COOLNAME</i> </strong>SHOP</a></Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -58,7 +57,7 @@ const Navbar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon color='info' fontSize='large'/>
+              <MenuIcon color='warning' fontSize='large'/>
             </IconButton>
             <Menu
             
@@ -81,59 +80,42 @@ const Navbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link href={ page === "All Products" ? "/products": "/cart"}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-            
-          >
-            COOLNAME SHOP
-          </Typography>
+          
+              <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+              >
+                <Link href={'/'}><a><strong><i>COOLNAME</i> </strong>SHOP</a></Link>
+            </Typography>
+          
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} >
               <Button
                 key={1}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, display: 'block' }}
-                color='info'
+                color='warning'
               >
-                ALL PRODUCTS
+                  <Link href={'/products'}>ALL PRODUCTS</Link>
+
+                
               </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Show Cart">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <ShoppingCartSharpIcon color='info' fontSize='large'/>
+                <ShoppingCartSharpIcon color='warning' fontSize='large'/>
               </IconButton>
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

@@ -1,13 +1,9 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
-  /* font-family: 'Square Peg', cursive; */
   font-family: 'Secular One', sans-serif;
 }
 
@@ -21,8 +17,7 @@ a {
 }
 
 .footer-box {
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
+  padding-top: 6vh;
+  padding-bottom: 2vh;
   background-color: #14110F;
 }
-

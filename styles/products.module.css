@@ -1,0 +1,30 @@
+.mainContainer {
+    min-height: 100vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEDE1;
+    
+  }
+
+.pageTitle {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.productsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4vh;
+    /* width: 75vw; */
+}
+
+/* .grid-item {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+}  */
