@@ -15,7 +15,9 @@ export default function Home() {
 
       <main className={styles.main}>
         <Container className='image-container'>
-          <Image src={bg} layout='fill' quality={75} placeholder='blur' objectFit='cover' objectPosition={'center'} priority></Image>
+          
+            <Image src={bg} layout='fill' quality={75} placeholder='blur' objectFit='cover' objectPosition={'center'} priority></Image>
+          
         </Container>
       </main>
 

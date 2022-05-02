@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
+import MyDrawer from '../drawer/drawer';
 
 const pages = ['All Products', 'My Cart'];
 
@@ -110,13 +111,14 @@ const Navbar = () => {
               </Button>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          {/* <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Show Cart">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <ShoppingCartSharpIcon color='warning' fontSize='large'/>
               </IconButton>
             </Tooltip>
-          </Box>
+          </Box> */}
+          <MyDrawer/>
         </Toolbar>
       </Container>
     </AppBar>

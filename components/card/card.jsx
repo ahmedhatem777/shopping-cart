@@ -21,12 +21,15 @@ export default function MyCard() {
         alt="green iguana"
       />
       <CardContent>
+
         <Typography gutterBottom variant="h7" component="div">
           A Jacket, a fuckin jacket
         </Typography>
+
         <Typography variant="body2" color="text.secondary">
           $49.99
         </Typography>
+        
       </CardContent>
       <Divider variant='middle'/>
       <CardActions className='card-actions' 

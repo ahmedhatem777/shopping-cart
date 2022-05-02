@@ -21,3 +21,25 @@ a {
   padding-bottom: 2vh;
   background-color: #14110F;
 }
+
+.drawer-box {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  align-items: center;
+}
+
+.drawer-button {
+  /* display: flex;
+  flex-direction: row; */
+  /* justify-content: space-between;
+  align-items: flex-end; */
+  /* margin-bottom: 1vw; */
+  margin-top: 2vh;
+}
+
+@media (orientation: portrait) {
+  .drawer-box {
+    width: 100vw
+  }
+}
