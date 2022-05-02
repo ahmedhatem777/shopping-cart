@@ -7,8 +7,15 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import '../../styles/products.module.css';
+import { useSelector, useDispatch } from "react-redux";
+import { addItem } from "../../store/cartSlice";
+
 
 export default function MyCard() {
+
+  const cart = useSelector( (state) => state.cart.items );
+  const dispatch = useDispatch()
+
   return (
     <Card sx={{ maxWidth: 250, 
     backgroundColor: '#CB9CF2',
@@ -23,7 +30,7 @@ export default function MyCard() {
       <CardContent>
 
         <Typography gutterBottom variant="h7" component="div">
-          A Jacket, a fuckin jacket
+          {cart.length != 0? 'The cart now has' + cart.length + 'items': 'The card is currently empty'}
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
@@ -35,7 +42,14 @@ export default function MyCard() {
       <CardActions className='card-actions' 
     //   sx={{ justifyContent: 'center', alignItems: 'center' }}
       >
-        <Button variant="contained" size="large" fullWidth endIcon={<AddShoppingCartSharpIcon />}>ADD TO CART</Button>
+        <Button 
+        variant="contained" 
+        size="large" 
+        fullWidth 
+        onClick={ () => {dispatch(addItem('item')); console.log(cart)} }
+        endIcon={<AddShoppingCartSharpIcon />}>
+          ADD TO CART
+        </Button>
       </CardActions>
     </Card>
   );

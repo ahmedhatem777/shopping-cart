@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 export default function Products() {
-
     // useEffect(() => {
     //     axios.get('https://fakestoreapi.com/products?limit=5')
     //     .then(function (response) {

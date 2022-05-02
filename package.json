@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.2",
+    "@reduxjs/toolkit": "^1.8.1",
     "axios": "^0.26.1",
     "next": "12.1.5",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-redux": "^8.0.1"
   },
   "devDependencies": {
     "eslint": "8.13.0",
