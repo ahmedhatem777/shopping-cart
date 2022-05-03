@@ -4,74 +4,46 @@ import MyCard from "../../components/card/card";
 import styles from '../../styles/products.module.css';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from "../../store/productsSlice";
 
 export default function Products() {
-    // useEffect(() => {
-    //     axios.get('https://fakestoreapi.com/products?limit=5')
-    //     .then(function (response) {
-    //     // handle success
-    //     console.log(response);
-    //     })
-    // }, []);
+    const {products, isLoading} = useSelector( state => state.products );
+    const dispatch = useDispatch();
 
-    return (
-        <>
-        
-        <div className={styles.mainContainer}>
-            <div className={styles.pageTitle}>
-                <h4> 8 total products</h4>
-            </div>
-            <Box  sx={{ flexGrow: 1 }}>
-            <Grid className={styles.productsContainer} justifyContent="center" container spacing={7}> 
-
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-                <Grid item xs={12} md={3}>
-                    <Grid container justifyContent="center">
-                        <MyCard/>
-                    </Grid>
-                </Grid>
-            </Grid>
-            </Box>
-        </div>
-        </>
-    )
+    useEffect( () => {
+        if( products.length === 0) {
+            try {
+                dispatch(getProducts());
+            }
+            catch {
+                console.log('hmm')
+            }
+        }
+    }, [])
+        return (
+            <>
+                <div className={styles.mainContainer}>
+                    <div className={styles.pageTitle}>
+                        { products? <h4> {products.length} total products</h4>: <p>loading</p>}
+                        
+                    </div>
+                    <Box  sx={{ flexGrow: 1 }}>
+                        <Grid className={styles.productsContainer} container spacing={5}> 
+                            {
+                                products?
+                                    products.map( product => <MyCard key={product.id} {...product}/>)
+                                :
+                                    <p> nope</p>
+                                    
+                            }
+                            {/* <MyCard/> */}
+                            
+                            
+                        </Grid>
+                    </Box>
+                </div>
+            </>
+        )
+    
 }

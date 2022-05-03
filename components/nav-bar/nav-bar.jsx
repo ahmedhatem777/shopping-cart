@@ -6,15 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import MyDrawer from '../drawer/drawer';
-
-const pages = ['All Products', 'My Cart'];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -79,13 +75,12 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Link href={ page === "All Products" ? "/products": "/cart"}>
-                    <Typography textAlign="center">{page}</Typography>
+                  <Link href={"/products"}>
+                    <Typography textAlign="center">All Products</Typography>
                   </Link>
                 </MenuItem>
-              ))}
+              
             </Menu>
           </Box>
           

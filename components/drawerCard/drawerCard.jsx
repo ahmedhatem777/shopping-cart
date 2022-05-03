@@ -7,71 +7,79 @@ import Typography from '@mui/material/Typography';
 import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
 import { Grid } from '@mui/material';
+import Image from 'next/image';
+import {addItem, removeItem} from '../../store/cartSlice';
+import { useDispatch } from "react-redux";
 
-export default function DrawerCard() {
-  return (
-    <Card sx={{ display: 'flex', width: '90%', marginTop: '3vh', 
-    border: 3}}>
 
+
+
+export default function DrawerCard({id, image, price, title, quantity}) {
+    const dispatch = useDispatch();
+
+    const increment = () => {
+        dispatch(addItem({id, image, price, title, quantity}));
+    }
     
-      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', pl: '2%', overflow: 'hidden'}}>
-        <Grid container>
+    const decrement = () => {
+        dispatch(removeItem({id, image, price, title, quantity}));
+    }
+    
+    return (
+        <Card sx={{ display: 'flex', width: '90%', marginTop: '3vh', 
+        border: 3}}>
 
-            <Grid md={4} sm={5} xs={5}>
-                <Box>
-                    <CardMedia
-                            component="img"
-                            height="140"
-                            image="/home-bg.jpg"
-                            alt="Live from space album cover"
-                        />
-                </Box>
-            </Grid>
-            
+        
+        <Box sx={{ display: 'flex', flexDirection: 'row', flexGrow: 1, alignItems: 'center', pl: '2%', overflow: 'hidden'}}>
+            <Grid container  spacing={7}>
 
-            <Grid md={8} sm={7} xs={7}>
-                <CardContent 
-                // sx={{ flex: '1 0 auto' }}
-                >
-                    
-                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden'}}>
-                        <Typography component="div" noWrap>
-                            {//mobile character limit 22
-                            }
-                            This shitty-ass jacket shity shity bang bang bang bagn bang
-                            This shitty-ass jacket shity shity bang bang bang bagn bang
-
-                            This shitty-ass jacket shity shity bang bang bang bagn bang
-
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary" component="div">
-                            $49.99
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                            <IconButton aria-label="previous" variant='contained'>
-                                <RemoveSharpIcon />
-                            </IconButton>
-                            <p>1</p>
-                            <IconButton aria-label="next">
-                                <AddSharpIcon /> 
-                            </IconButton>
-                        </Box>
-                        
+                <Grid item xl={4} lg={4} md={4} sm={5} xs={5} >
+                    <Box sx={{marginTop:'1vh'}}>
+                        <CardMedia>
+                            <Image src={image}  objectFit='cover' height='150' width='150' quality={50}></Image>
+                        </CardMedia>
                     </Box>
-                </CardContent>
+                </Grid>
+                
+
+                <Grid item xl={8} lg={8} md={8} sm={7} xs={7}>
+                    <Box>
+                        <CardContent>
+                            
+                            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                                <Typography component="div" noWrap>
+                                    {title}
+                                </Typography>
+                                <Typography variant="subtitle1" color="text.secondary" component="div">
+                                    ${price}
+                                </Typography>
+                                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                    <IconButton onClick={decrement}  variant='contained'>
+                                        <RemoveSharpIcon />
+                                    </IconButton>
+                                    <p>{quantity}</p>
+                                    <IconButton onClick={increment}>
+                                        <AddSharpIcon /> 
+                                    </IconButton>
+                                </Box>
+                                
+                            </Box>
+                        </CardContent>
+                    </Box>
+                    
+                </Grid>
+                
+                
             </Grid>
+
+                
             
-            
-        </Grid>
 
             
-          
 
+            
+        </Box>
         
-
-        
-      </Box>
-      
-    </Card>
-  );
+        </Card>
+    );
 }

@@ -15,9 +15,11 @@
 }
 
 .productsContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    /* align-content: center; */
+    justify-content: space-around;
     margin-bottom: 4vh;
     /* width: 75vw; */
 }
