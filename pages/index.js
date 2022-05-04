@@ -15,12 +15,12 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>      
-         <Image src={bg} layout='fill' quality={75} placeholder='blur' objectFit='cover' objectPosition={'center'} priority></Image>
+         <Image alt='homepage background' src={bg} layout='fill' quality={75} placeholder='blur' objectFit='cover' objectPosition={'center'} priority></Image>
       </main>
 
     </div>
   )
-  
+
 }
 
 export default Home;

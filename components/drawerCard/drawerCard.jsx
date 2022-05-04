@@ -32,7 +32,7 @@ const DrawerCard = ({id, image, price, title, quantity}) => {
                     <Grid item xl={4} lg={4} md={4} sm={5} xs={5} >
                         <Box className={styles.drawerCardMedia}>
                             <CardMedia>
-                                <Image src={image}  objectFit='cover' height='150' width='150' quality={50}></Image>
+                                <Image src={image} alt='product image' objectFit='cover' height='150' width='150' quality={50}></Image>
                             </CardMedia>
                         </Box>
                     </Grid>

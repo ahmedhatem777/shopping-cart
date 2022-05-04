@@ -24,7 +24,7 @@ const MyCard = ({id, image, price, title}) => {
         <Card className={styles.productCard}>
 
           <CardMedia>
-              <Image src={image} layout={'responsive'} height='200' width='256' quality={75}></Image>
+              <Image alt='product image' src={image} layout={'responsive'} height='200' width='256' quality={75}></Image>
           </CardMedia>
 
           <CardContent>
