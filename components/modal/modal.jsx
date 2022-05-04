@@ -38,4 +38,4 @@ const MyModal = ({disabled}) => {
   );
 }
 
-export default MyModal;
+export default MyModal; 

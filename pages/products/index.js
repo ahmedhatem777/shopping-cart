@@ -21,7 +21,7 @@ const Products = () => {
                 console.log('Error while fetching products.');
             }
         }
-    }, [dispatch])
+    }, [dispatch, products])
 
     return (
         <div className={styles.mainContainer}>
