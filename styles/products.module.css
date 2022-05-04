@@ -6,26 +6,107 @@
     justify-content: center;
     align-items: center;
     background-color: #FFEDE1;
-  }
+}
 
 .pageTitle {
     margin-top: 3vh;
     margin-bottom: 3vh;
 }
 
-.productsContainer {
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; */
-    /* align-content: center; */
-    justify-content: space-around;
-    margin-bottom: 4vh;
-    /* width: 75vw; */
+.productsBox {
+    flex-grow: 1;
+    margin-top: 6vh;
 }
 
-/* .grid-item {
-    display: grid;
-    justify-content: center;
-    align-items: center;
+.productsContainer {
+    justify-content: space-around;
+    margin-bottom: 4vh;
+}
 
-}  */
+.cardContainer {
+    justify-content: center;
+}
+
+.productCard {
+    width: 256px;
+    height: 350px; 
+    border: 2px;
+    border-style: solid;
+    overflow: hidden;
+}
+
+.drawerContent {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  align-items: center;
+}
+
+.drawerStatement {
+    margin-top: 20vh;
+    margin-bottom: 30vh;
+}
+
+.drawerButton {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.drawerCard {
+    display:flex;
+    width: 90%;
+    margin-top: 3vh;
+    border: 2px;
+    border-style: solid;
+}
+
+.drawerCardBox {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+    overflow: hidden;
+    margin-left: 2%;
+}
+
+.drawerCardMedia {
+    margin-top: 1vh;
+}
+
+.drawerCardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.drawerCardActions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.drawerModal {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFEDE1;
+    box-shadow: 24;
+    padding: 4vh;
+    border: 2px;
+    border-style: solid;
+    text-align: center;
+}
+
+.modalSubtitle {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
+}
+
+@media (orientation: portrait) {
+    .drawerContent {
+      width: 100vw
+    }
+}

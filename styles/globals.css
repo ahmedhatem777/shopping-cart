@@ -16,37 +16,12 @@ a {
   box-sizing: border-box;
 }
 
-.footer-box {
-  /* margin-top: 5.5vh; */
+.footerBox {
   padding-top: 2vh;
   padding-bottom: 2vh; 
   background-color: #14110F;
-
-  /* position: sticky;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center; */
+  color: white; 
+  text-align: center;
 }
 
-.drawer-box {
-  display: flex;
-  flex-direction: column;
-  width: 35vw;
-  align-items: center;
-}
 
-.drawer-button {
-  /* display: flex;
-  flex-direction: row; */
-  /* justify-content: space-between;
-  align-items: flex-end; */
-  /* margin-bottom: 1vw; */
-  margin-top: 2vh;
-}
-
-@media (orientation: portrait) {
-  .drawer-box {
-    width: 100vw
-  }
-}

@@ -14,27 +14,22 @@ import MyDrawer from '../drawer/drawer';
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <AppBar position="sticky"  color='primary'> 
+
       <Container maxWidth="xl">
-        <Toolbar disableGutters >
+
+        <Toolbar disableGutters>
+
           <Typography
             variant="h6"
             noWrap
@@ -42,33 +37,30 @@ const Navbar = () => {
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             color='warning'
           >
+            
             <Link href={'/'}><a><strong><i>COOLNAME</i> </strong>SHOP</a></Link>
+
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+            <IconButton onClick={handleOpenNavMenu}>
               <MenuIcon color='warning' fontSize='large'/>
             </IconButton>
+
             <Menu
-            
-              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
               }}
+
               keepMounted
+
               transformOrigin={{
                 vertical: 'top',
                 horizontal: 'left',
               }}
+
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
@@ -82,6 +74,7 @@ const Navbar = () => {
                 </MenuItem>
               
             </Menu>
+
           </Box>
           
               <Typography
@@ -105,18 +98,11 @@ const Navbar = () => {
                 
               </Button>
           </Box>
-
-          {/* <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Show Cart">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <ShoppingCartSharpIcon color='warning' fontSize='large'/>
-              </IconButton>
-            </Tooltip>
-          </Box> */}
           <MyDrawer/>
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
+
 export default Navbar;

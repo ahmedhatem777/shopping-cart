@@ -45,7 +45,8 @@ const myTheme = createTheme({
     spacing: 8,
 });
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
+
   return (
     <>
     <ThemeProvider theme={myTheme}>
@@ -57,3 +58,5 @@ export default function Layout({ children }) {
     </>
   )
 }
+
+export default Layout;
