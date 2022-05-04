@@ -21,16 +21,16 @@ export const cartSlice = createSlice({
         addItem: (state, action) => {
             let itemPresent = findItem(action.payload, state.items);
 
-            if(itemPresent != null) {
-                state.items[itemPresent].quantity += 1;
-                state.total += action.payload.price;
-                state.quantity += 1;
-            }
-            else {
+            if(itemPresent == null) {
                 state.items.push( {...action.payload, quantity: 1} );
                 state.total += action.payload.price;
                 state.quantity += 1;
-
+                
+            }
+            else if(state.items[itemPresent].quantity < 10){
+                state.items[itemPresent].quantity += 1;
+                state.total += action.payload.price;
+                state.quantity += 1;
             }
         },
         removeItem: (state, action) => {
@@ -41,15 +41,12 @@ export const cartSlice = createSlice({
                 item.quantity -= 1;
                 state.total -= item.price;
                 state.quantity -= 1;
-                
             }
-
             else {
                 state.items.splice(index, 1);
                 state.total -= item.price;
                 state.quantity -= 1;
             }
-
         },
         clearCart: (state) => {
             state.items = [];

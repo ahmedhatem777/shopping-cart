@@ -8,8 +8,9 @@ import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
 import DrawerCard from '../drawerCard/drawerCard';
 import Badge from '@mui/material/Badge';
 import { useSelector, useDispatch } from "react-redux";
-// import { cartSlice } from "../../store/productsSlice";
 import {clearCart} from '../../store/cartSlice';
+import MyModal from '../modal/modal';
+import { Typography } from '@mui/material';
 
 export default function TemporaryDrawer() {
   const[drawerState, setDrawerState] = useState(false);
@@ -22,29 +23,28 @@ export default function TemporaryDrawer() {
   };
 
   const Malist = () => (
-    // <Container maxWidth="false">
-  
     <Box
               className='drawer-box'
               role="presentation"
               onKeyDown={toggleDrawer}
-              // sx={{height: 'auto'}}
-              // minHeight="100vh"
-              // maxHeight="100vh"
-              // overflow
             >
-              {items? items.map( item => <DrawerCard key={item.id} {...item}/>)
-              :
-              <p>There aren't any items in your cart.</p>
+              {
+              quantity > 0?
+                items.map( item => <DrawerCard key={item.id} {...item}/>)
+              :  
+                <Box sx={{mt: '20vh', mb: '30vh'}}>
+                  <Typography variant='h6'>Your cart is empty.</Typography>
+                </Box>
               }
 
               <h3> <strong>TOTAL:</strong> ${total.toFixed(2)}</h3>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '50%'}}>                  
-                  <Button onClick={ () => toggleDrawer} className='drawer-button' variant='contained' fullWidth>CHECKOUT NOW</Button>
+                  {/* <Button onClick={ () => toggleDrawer()} className='drawer-button' variant='contained' fullWidth>CHECKOUT NOW</Button> */}
+                  <MyModal disabled = {total === 0}/>
                   <Button className='drawer-button' variant='contained' fullWidth onClick={toggleDrawer}>CONTINUE SHOPPING</Button>
-                  <Button fullWidth className='drawer-button' variant='contained' color='secondary' sx={{mb: '4vh'}}
-                  onClick={e => {e.preventDefault(); dispatch( clearCart() ) } }>CLEAR CART</Button>
+                  <Button disabled = {total === 0} fullWidth className='drawer-button' variant='contained' color='secondary' sx={{mb: '4vh'}} 
+                  onClick={() => {dispatch( clearCart() ); toggleDrawer() } }>CLEAR CART</Button>
               </Box>
               
               

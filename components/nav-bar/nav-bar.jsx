@@ -75,7 +75,7 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem onClick={handleCloseNavMenu}>
                   <Link href={"/products"}>
                     <Typography textAlign="center">All Products</Typography>
                   </Link>

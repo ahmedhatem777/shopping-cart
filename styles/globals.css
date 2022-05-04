@@ -17,9 +17,16 @@ a {
 }
 
 .footer-box {
-  padding-top: 6vh;
-  padding-bottom: 2vh;
+  /* margin-top: 5.5vh; */
+  padding-top: 2vh;
+  padding-bottom: 2vh; 
   background-color: #14110F;
+
+  /* position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center; */
 }
 
 .drawer-box {

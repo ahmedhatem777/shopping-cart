@@ -11,9 +11,6 @@ import Image from 'next/image';
 import {addItem, removeItem} from '../../store/cartSlice';
 import { useDispatch } from "react-redux";
 
-
-
-
 export default function DrawerCard({id, image, price, title, quantity}) {
     const dispatch = useDispatch();
 
@@ -28,8 +25,6 @@ export default function DrawerCard({id, image, price, title, quantity}) {
     return (
         <Card sx={{ display: 'flex', width: '90%', marginTop: '3vh', 
         border: 3}}>
-
-        
         <Box sx={{ display: 'flex', flexDirection: 'row', flexGrow: 1, alignItems: 'center', pl: '2%', overflow: 'hidden'}}>
             <Grid container  spacing={7}>
 
@@ -45,7 +40,6 @@ export default function DrawerCard({id, image, price, title, quantity}) {
                 <Grid item xl={8} lg={8} md={8} sm={7} xs={7}>
                     <Box>
                         <CardContent>
-                            
                             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
                                 <Typography component="div" noWrap>
                                     {title}
@@ -66,20 +60,9 @@ export default function DrawerCard({id, image, price, title, quantity}) {
                             </Box>
                         </CardContent>
                     </Box>
-                    
                 </Grid>
-                
-                
             </Grid>
-
-                
-            
-
-            
-
-            
         </Box>
-        
         </Card>
     );
 }
