@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from '../../store/cartSlice';
 import { styled } from '@mui/material/styles';
+import { motion } from "framer-motion";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
@@ -40,10 +41,29 @@ const MyDrawer = () => {
         
           <MyModal disabled = {total <= 0}/>
 
-          <Button className={styles.drawerButton} variant='contained' fullWidth onClick={toggleDrawer}>CONTINUE SHOPPING</Button>
+          <Button 
+            className={styles.drawerButton} 
+            variant='contained' 
+            fullWidth 
+            onClick={toggleDrawer}
+            component={motion.div}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+          >
+              CONTINUE SHOPPING
+          </Button>
 
-          <Button className={styles.drawerButton} variant='contained' disabled={ total <= 0 } color='secondary' fullWidth
-                  onClick={ () => { dispatch( clearCart() ); toggleDrawer() } }
+          <Button 
+            className={styles.drawerButton} 
+            variant='contained' 
+            disabled={ total <= 0 } 
+            color='secondary' 
+            fullWidth
+            onClick={ () => { dispatch( clearCart() ); toggleDrawer() } }
+            onClick={toggleDrawer}
+            component={motion.div}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
           >
           CLEAR CART
           </Button>

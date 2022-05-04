@@ -1,15 +1,18 @@
-import { Provider } from 'react-redux'
-import { store } from '../store/store'
-import Layout from '../components/layout/layout'
-import '../styles/globals.css'
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
+import { AnimatePresence } from 'framer-motion';
+import Layout from '../components/layout/layout';
+import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
 
   return (
     <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AnimatePresence>
     </Provider>
   )
   

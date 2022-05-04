@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
+import { motion } from "framer-motion";
 import AddShoppingCartSharpIcon from '@mui/icons-material/AddShoppingCartSharp';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -42,16 +43,20 @@ const MyCard = ({id, image, price, title}) => {
           <Divider variant='middle'/>
 
           <CardActions>
-
+   
             <Button 
-              variant="contained" 
-              size="large" 
-              fullWidth 
-              onClick={ () => dispatch(addItem({id, image, price, title})) }
-              endIcon={<AddShoppingCartSharpIcon />}>
-              ADD TO CART
+                variant="contained" 
+                size="large" 
+                fullWidth 
+                onClick={ () => dispatch(addItem({id, image, price, title})) }
+                endIcon={<AddShoppingCartSharpIcon />}
+                component={motion.div}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.9 }}
+            >
+            ADD TO CART
             </Button>
-
+         
           </CardActions>
 
         </Card>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../store/productsSlice";
+import { motion } from 'framer-motion'
 import CircularProgress from '@mui/material/CircularProgress';
 import MyCard from "../../components/card/card";
 import styles from '../../styles/products.module.css';
@@ -24,7 +25,8 @@ const Products = () => {
     }, [dispatch, products])
 
     return (
-        <div className={styles.mainContainer}>
+        <motion.div className={styles.mainContainer} initial={{ opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+
             {
 
             isLoading?
@@ -39,7 +41,7 @@ const Products = () => {
                 </Box>
 
             }
-        </div>
+        </motion.div>
     )
 }
 
