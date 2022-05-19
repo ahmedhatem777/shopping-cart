@@ -6,10 +6,10 @@ const Footer = () => {
     return (
         <footer>
             <Box className="footerBox" >
-                <p>AHMED HATEM © 2022</p>
+                <p>Ahmed Hatem © 2022</p>
 
                 <a href="https://github.com/ahmedhatem777" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-                <a href="https://tinyurl.com/2p8zwjf6" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+                <a href="https://linkedin.com/in/ahmedhatem777" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
                 
                 <p><a href="mailto:ahmedhatem777@hotmail.com"><i>ahmedhatem777@hotmail.com</i></a></p>
             </Box>

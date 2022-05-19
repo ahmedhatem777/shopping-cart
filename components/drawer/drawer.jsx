@@ -4,6 +4,7 @@ import { clearCart } from '../../store/cartSlice';
 import { styled } from '@mui/material/styles';
 import { motion } from "framer-motion";
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -37,36 +38,44 @@ const MyDrawer = () => {
 
       <h3>TOTAL: $ {Math.abs(total.toFixed(2))}</h3>
 
-      <Box >                  
-        
-          <MyModal disabled = {total <= 0}/>
+      <Box className={styles.drawerButtons}>     
 
-          <Button 
-            className={styles.drawerButton} 
-            variant='contained' 
-            fullWidth 
-            onClick={toggleDrawer}
-            component={motion.div}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9 }}
-          >
-              CONTINUE SHOPPING
-          </Button>
+        <Grid container spacing={2}>
+          <Grid item md={12} sm={12} lg={12} xs={12}>
+            <MyModal disabled = {quantity <= 0}/>
+          </Grid>
 
-          <Button 
-            className={styles.drawerButton} 
-            variant='contained' 
-            disabled={ total <= 0 } 
-            color='secondary' 
-            fullWidth
-            onClick={ () => { dispatch( clearCart() ); toggleDrawer() } }
-            component={motion.div}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.9 }}
-          >
-          CLEAR CART
-          </Button>
+          <Grid item md={12} sm={12} lg={12} xs={12}>
+            <Button 
+              className={styles.drawerButton} 
+              variant='contained' 
+              fullWidth 
+              onClick={toggleDrawer}
+              component={motion.div}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+            >
+                CONTINUE SHOPPING
+            </Button>
+          </Grid>
 
+          <Grid item md={12} sm={12} lg={12} xs={12}>
+            <Button 
+              className={styles.drawerButton} 
+              variant='contained' 
+              disabled={ quantity <= 0 } 
+              color='secondary' 
+              fullWidth
+              onClick={ () => { dispatch( clearCart() ); toggleDrawer() } }
+              component={motion.div}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+            >
+            CLEAR CART
+            </Button>
+          </Grid>
+        </Grid>             
+           
       </Box>
                         
     </Box> 

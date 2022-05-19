@@ -1,11 +1,25 @@
 .main {
-  min-height: 93vh;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #14110F;
+  min-height: 100vh;
 }
 
+.bgWrap {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
 
+.bgText {
+  flex: 1;
+  display: flex;
+  margin: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7%;
+  padding-left: 3%;
+  text-shadow: 2px 2px 2px #9F2042;
+  cursor: default;
+  user-select: none;
+}

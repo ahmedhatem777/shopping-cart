@@ -47,6 +47,10 @@
     margin-bottom: 30vh;
 }
 
+.drawerButtons {
+    width: 45%;
+}
+
 .drawerButton {
     margin-top: 1vh;
     margin-bottom: 2vh;
@@ -108,5 +112,9 @@
 @media (orientation: portrait) {
     .drawerContent {
       width: 100vw
+    }
+
+    .drawerButtons {
+        width: 90%
     }
 }

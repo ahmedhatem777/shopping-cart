@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import Head from 'next/head';
-import Image from 'next/image';
+import Background from '../components/background/background';
 import styles from '../styles/Home.module.css';
-import bg from '../public/home-bg.jpg';
 
 const Home = () => {
 
@@ -15,8 +14,8 @@ const Home = () => {
         <link rel="icon" href='icons8.png' />
       </Head>
 
-      <main className={styles.main}>      
-         <Image alt='homepage background' src={bg} layout='fill' quality={75} placeholder='blur' objectFit='cover' objectPosition={'center'} priority></Image>
+      <main className={styles.main}>     
+        <Background/>
       </main>
 
     </motion.div>
